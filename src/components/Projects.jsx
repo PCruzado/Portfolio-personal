@@ -10,7 +10,6 @@ import { projects } from '../models/content.js'
 ────────────────────────────────────────────────────────── */
 function ProjectCard({ project, index }) {
   const cardRef = useRef(null)
-  const isEven  = index % 2 === 0
 
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -38,7 +37,7 @@ function ProjectCard({ project, index }) {
         style={{
           position: 'absolute',
           inset: 0,
-          background: `radial-gradient(ellipse 60% 60% at ${isEven ? '20%' : '80%'} 50%, ${project.color} 0%, transparent 70%)`,
+          background: `radial-gradient(ellipse 60% 60% at 20% 50%, ${project.color} 0%, transparent 70%)`,
           pointerEvents: 'none',
           zIndex: 0,
         }}
@@ -46,7 +45,7 @@ function ProjectCard({ project, index }) {
       />
 
       <div
-        className={`wrap project-grid ${isEven ? 'even' : 'odd'}`}
+        className="wrap project-grid"
         style={{
           position: 'relative',
           zIndex: 1,
@@ -78,37 +77,25 @@ function ProjectCard({ project, index }) {
               {project.year}
             </p>
           </Reveal>
-
-          {/* Stack tags */}
-          <Reveal delay={0.1}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
-              {project.stack.map(t => (
-                <span key={t} className="tag">{t}</span>
-              ))}
-            </div>
-          </Reveal>
-
-          {/* Challenge label */}
-          <Reveal delay={0.15}>
-            <div style={{
-              padding: '16px 20px',
-              border: '1px solid var(--accent-line)',
-              borderRadius: '4px',
-              background: 'rgba(255,255,255,0.02)',
-            }}>
-              <p className="t-label" style={{ marginBottom: '8px', color: 'var(--stone)' }}>
-                Desafío clave
-              </p>
-              <p className="t-body" style={{ fontSize: '0.85rem', color: 'var(--mist)' }}>
-                {project.challenge}
-              </p>
-            </div>
-          </Reveal>
         </div>
 
         {/* ── Content column ── */}
         <div className="project-col-content">
-          <RevealLine delay={0.05}>
+          {/* Project Title / Name */}
+          <Reveal delay={0.05}>
+            <h4 style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 400,
+              fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',
+              color: 'var(--white)',
+              marginBottom: '12px',
+            }}>
+              {project.title}
+            </h4>
+          </Reveal>
+
+          {/* Project Headline */}
+          <RevealLine delay={0.1}>
             <h3
               className="t-title"
               style={{
@@ -122,26 +109,42 @@ function ProjectCard({ project, index }) {
             </h3>
           </RevealLine>
 
-          <Reveal delay={0.12}>
-            <h4 style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: 'clamp(1.4rem, 3vw, 2.2rem)',
-              color: 'var(--white)',
-              marginBottom: '20px',
-            }}>
-              {project.title}
-            </h4>
-          </Reveal>
-
-          <Reveal delay={0.18}>
-            <p className="t-body" style={{ color: 'var(--stone)', maxWidth: '520px' }}>
+          {/* Description */}
+          <Reveal delay={0.15}>
+            <p className="t-body" style={{ color: 'var(--stone)', maxWidth: '520px', marginBottom: '32px' }}>
               {project.description}
             </p>
           </Reveal>
 
+          {/* Stack tags (Languages & Tools) */}
+          <Reveal delay={0.2}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '32px' }}>
+              {project.stack.map(t => (
+                <span key={t} className="tag">{t}</span>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Challenge label */}
+          <Reveal delay={0.25}>
+            <div style={{
+              padding: '16px 20px',
+              border: '1px solid var(--accent-line)',
+              borderRadius: '4px',
+              background: 'rgba(255,255,255,0.02)',
+              maxWidth: '520px',
+            }}>
+              <p className="t-label" style={{ marginBottom: '8px', color: 'var(--stone)' }}>
+                Desafío clave
+              </p>
+              <p className="t-body" style={{ fontSize: '0.85rem', color: 'var(--mist)' }}>
+                {project.challenge}
+              </p>
+            </div>
+          </Reveal>
+
           {/* Horizontal rule with accent */}
-          <Reveal delay={0.24}>
+          <Reveal delay={0.3}>
             <div style={{
               marginTop: '40px',
               height: '1px',

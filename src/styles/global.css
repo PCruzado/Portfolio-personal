@@ -218,19 +218,12 @@ body::after {
 
 .project-grid {
   display: grid;
+  grid-template-columns: 1fr 2.2fr;
   gap: clamp(32px, 5vw, 80px);
   align-items: start;
 }
-.project-grid.even {
-  grid-template-columns: 1fr 1.6fr;
-}
-.project-grid.odd {
-  grid-template-columns: 1.6fr 1fr;
-}
 .project-col-meta { order: 0; }
 .project-col-content { order: 1; }
-.project-grid.odd .project-col-meta { order: 1; }
-.project-grid.odd .project-col-content { order: 0; }
 
 .stack-header {
   display: grid;
@@ -259,15 +252,13 @@ body::after {
 }
 
 @media (max-width: 900px) {
-  .project-grid.even, .project-grid.odd {
+  .project-grid {
     grid-template-columns: 1fr;
   }
-  .project-grid.odd .project-col-meta,
-  .project-grid.even .project-col-meta {
+  .project-col-meta {
     order: 0;
   }
-  .project-grid.odd .project-col-content,
-  .project-grid.even .project-col-content {
+  .project-col-content {
     order: 1;
   }
 }
