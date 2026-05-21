@@ -65,7 +65,7 @@ export default function Nav() {
       </a>
 
       {/* Links */}
-      <ul style={{ display: 'flex', gap: 'clamp(24px, 3vw, 48px)', listStyle: 'none' }}>
+      <ul className="nav-links">
         {links.map(l => (
           <li key={l.href}>
             <a

@@ -46,18 +46,14 @@ function ProjectCard({ project, index }) {
       />
 
       <div
-        className="wrap"
+        className={`wrap project-grid ${isEven ? 'even' : 'odd'}`}
         style={{
           position: 'relative',
           zIndex: 1,
-          display: 'grid',
-          gridTemplateColumns: isEven ? '1fr 1.6fr' : '1.6fr 1fr',
-          gap: 'clamp(32px, 5vw, 80px)',
-          alignItems: 'start',
         }}
       >
         {/* ── Meta column ── */}
-        <div style={{ order: isEven ? 0 : 1 }}>
+        <div className="project-col-meta">
           <Reveal delay={0}>
             <motion.div style={{ y: numY }}>
               <span style={{
@@ -110,7 +106,7 @@ function ProjectCard({ project, index }) {
         </div>
 
         {/* ── Content column ── */}
-        <div style={{ order: isEven ? 1 : 0 }}>
+        <div className="project-col-content">
           <RevealLine delay={0.05}>
             <h3
               className="t-title"

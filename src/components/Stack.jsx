@@ -19,13 +19,7 @@ export default function StackSection() {
     >
       <div className="wrap">
         {/* Header */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 2fr',
-          gap: 'clamp(32px, 5vw, 80px)',
-          marginBottom: 'clamp(60px, 8vw, 100px)',
-          alignItems: 'end',
-        }}>
+        <div className="stack-header">
           <div>
             <Reveal>
               <p className="t-label" style={{ marginBottom: '16px' }}>Stack tecnológico</p>
@@ -46,13 +40,7 @@ export default function StackSection() {
         </div>
 
         {/* Tech grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1px',
-          background: 'var(--accent-line)',
-          border: '1px solid var(--accent-line)',
-        }}>
+        <div className="stack-grid">
           {categories.map((cat, ci) => (
             <Reveal key={cat.label} delay={ci * 0.08}>
               <div style={{

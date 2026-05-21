@@ -70,15 +70,8 @@ export default function Contact() {
                 target={c.href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
                 data-cursor
+                className="contact-row"
                 style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: 'clamp(20px, 3vw, 32px) 0',
-                  borderTop: '1px solid var(--accent-line)',
-                  textDecoration: 'none',
-                  cursor: 'none',
-                  transition: 'color 0.35s ease',
                   ...(i === contacts.length - 1 ? { borderBottom: '1px solid var(--accent-line)' } : {}),
                 }}
                 onMouseEnter={e => {
@@ -109,7 +102,7 @@ export default function Contact() {
                 >
                   {c.value}
                 </span>
-                <span style={{ color: 'var(--stone)', fontSize: '1.2rem', opacity: 0.5 }}>↗</span>
+                <span className="c-arrow" style={{ color: 'var(--stone)', fontSize: '1.2rem', opacity: 0.5 }}>↗</span>
               </a>
             </Reveal>
           ))}

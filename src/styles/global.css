@@ -201,3 +201,102 @@ body::after {
   transition: width var(--duration-med) var(--ease-out);
 }
 .link-underline:hover::after { width: 100%; }
+
+/* ── Responsive Utilities ─────────────────────────────────── */
+.nav-links {
+  display: flex;
+  gap: clamp(24px, 3vw, 48px);
+  list-style: none;
+}
+
+.study-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(32px, 5vw, 80px);
+  padding: clamp(48px, 6vw, 80px) 0;
+}
+
+.project-grid {
+  display: grid;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+}
+.project-grid.even {
+  grid-template-columns: 1fr 1.6fr;
+}
+.project-grid.odd {
+  grid-template-columns: 1.6fr 1fr;
+}
+.project-col-meta { order: 0; }
+.project-col-content { order: 1; }
+.project-grid.odd .project-col-meta { order: 1; }
+.project-grid.odd .project-col-content { order: 0; }
+
+.stack-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(32px, 5vw, 80px);
+  margin-bottom: clamp(60px, 8vw, 100px);
+  align-items: end;
+}
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--accent-line);
+  border: 1px solid var(--accent-line);
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(20px, 3vw, 32px) 0;
+  border-top: 1px solid var(--accent-line);
+  text-decoration: none;
+  cursor: none;
+  transition: color 0.35s ease;
+}
+
+@media (max-width: 900px) {
+  .project-grid.even, .project-grid.odd {
+    grid-template-columns: 1fr;
+  }
+  .project-grid.odd .project-col-meta,
+  .project-grid.even .project-col-meta {
+    order: 1;
+  }
+  .project-grid.odd .project-col-content,
+  .project-grid.even .project-col-content {
+    order: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .study-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .stack-header {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .contact-row .c-arrow {
+    display: none; /* Oculta la flecha en pantallas chicas para ahorrar espacio */
+  }
+}

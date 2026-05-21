@@ -5,11 +5,8 @@ function StudyBlock({ study, index, isLast }) {
 
   return (
     <article
+      className="study-grid"
       style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 2fr',
-        gap: 'clamp(32px, 5vw, 80px)',
-        padding: 'clamp(48px, 6vw, 80px) 0',
         borderTop: '1px solid var(--accent-line)',
         ...(isLast ? { borderBottom: '1px solid var(--accent-line)' } : {}),
       }}

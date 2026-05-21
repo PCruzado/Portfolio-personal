@@ -16,6 +16,19 @@ hasta la interfaz, construyo sistemas que escalan y perduran.`,
 
 export const studies = [
   {
+    id: 'bachiller',
+    institution: 'Colegio Tulio García Fernández',
+    short: 'TGF',
+    degree: 'Bachiller en Economía y Gestión de las Organizaciones',
+    period: '2017 — 2022',
+    focus: [
+      'Economía y administración de organizaciones',
+      'Gestión contable y financiera',
+      'Organización y procesos empresariales',
+    ],
+    note: 'Título secundario con orientación en economía y gestión organizacional.',
+  },
+  {
     id: 'unsta',
     institution: 'Universidad del Norte\nSanto Tomás de Aquino',
     short: 'UNSTA',
