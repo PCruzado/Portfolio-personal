@@ -264,11 +264,11 @@ body::after {
   }
   .project-grid.odd .project-col-meta,
   .project-grid.even .project-col-meta {
-    order: 1;
+    order: 0;
   }
   .project-grid.odd .project-col-content,
   .project-grid.even .project-col-content {
-    order: 0;
+    order: 1;
   }
 }
 

@@ -65,6 +65,7 @@ function ProjectCard({ project, index }) {
                 display: 'block',
                 marginBottom: '8px',
                 userSelect: 'none',
+                pointerEvents: 'none',
               }}>
                 {project.index}
               </span>
